@@ -1,4 +1,4 @@
-FROM ubuntu:23.10
+FROM ubuntu:mantic-20231011
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
 
 RUN apt-get update
