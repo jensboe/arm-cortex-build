@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:23.10
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
 
 RUN apt-get update
