@@ -11,13 +11,11 @@ RUN mkdir ${TOOLS_PATH} \
     && curl -Lo gcc-arm-none-eabi.tar.xz https://developer.arm.com/-/media/Files/downloads/gnu/12.3.rel1/binrel/arm-gnu-toolchain-12.3.rel1-x86_64-arm-none-eabi.tar.xz \
     && tar xf gcc-arm-none-eabi.tar.xz --strip-components=1 -C ${TOOLS_PATH} \
     && rm gcc-arm-none-eabi.tar.xz \
-	&& rm ${TOOLS_PATH}/*.txt \
-	&& rm -rf ${TOOLS_PATH}/share/doc
-
-RUN echo cmake --version
-RUN echo ninja-build --version
-RUN echo arm-none-eabi-gcc --version
-
+    && rm ${TOOLS_PATH}/*.txt \
+    && rm -rf ${TOOLS_PATH}/share/doc
 
 # Add Toolchain to PATH
 ENV PATH="$PATH:${TOOLS_PATH}/bin"
+
+ADD entrypoint.sh /
+ENTRYPOINT [ "/entrypoint.sh" ]
