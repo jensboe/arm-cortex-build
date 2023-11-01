@@ -22,5 +22,8 @@ RUN mkdir ${TOOLS_PATH} \
 # Add Toolchain to PATH
 ENV PATH="$PATH:${TOOLS_PATH}/bin"
 
+#Dev container stuff
+RUN npm install -g @devcontainers/cli
+
 ADD entrypoint.sh /
 ENTRYPOINT [ "/entrypoint.sh" ]
