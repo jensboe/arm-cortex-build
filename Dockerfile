@@ -11,6 +11,7 @@ RUN apt-get install -y curl
 RUN apt-get install -y gdb
 RUN apt-get install -y clang-tidy
 RUN apt-get install -y npm
+RUN apt-get install -y lstat
 
 RUN mkdir ${TOOLS_PATH} \
     && curl -Lo gcc-arm-none-eabi.tar.xz https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION}/binrel/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz \
@@ -23,7 +24,7 @@ RUN mkdir ${TOOLS_PATH} \
 ENV PATH="$PATH:${TOOLS_PATH}/bin"
 
 #Dev container stuff
-RUN npm install -g @devcontainers/cli
+LABEL dev.containers.features="common"
 
 ADD entrypoint.sh /
 ENTRYPOINT [ "/entrypoint.sh" ]
