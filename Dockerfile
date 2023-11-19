@@ -1,6 +1,6 @@
 FROM ubuntu:mantic-20231011
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
-ARG ARM_GCC_VERSION=12.3.rel1
+ARG ARM_GCC_VERSION=13.2.rel1
 
 RUN apt-get update
 RUN apt-get install -y build-essential
