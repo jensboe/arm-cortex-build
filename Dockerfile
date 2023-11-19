@@ -11,6 +11,7 @@ RUN apt-get install -y curl
 RUN apt-get install -y gdb
 RUN apt-get install -y clang-tidy
 RUN apt-get install -y python3
+RUN apt-get install -y llvm
 
 RUN mkdir ${TOOLS_PATH} \
     && curl -Lo gcc-arm-none-eabi.tar.xz https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION}/binrel/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz \
