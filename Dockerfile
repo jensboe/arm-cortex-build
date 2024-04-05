@@ -1,4 +1,4 @@
-FROM ubuntu:mantic-20231011
+FROM ubuntu:mantic-20240216
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
 ARG ARM_GCC_VERSION=13.2.rel1
 
