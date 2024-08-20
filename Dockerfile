@@ -1,10 +1,10 @@
-FROM ubuntu:24.10
+FROM ubuntu:24.04
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
 ARG ARM_GCC_VERSION=13.2.rel1
 
 RUN apt-get update
 RUN apt-get install -y build-essential
-RUN apt-get install -y cmake=3.27.4-1
+RUN apt-get install -y cmake=3.28
 RUN apt-get install -y ninja-build
 RUN apt-get install -y git
 RUN apt-get install -y curl
