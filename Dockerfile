@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:24.10
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
 ARG ARM_GCC_VERSION=13.2.rel1
 
