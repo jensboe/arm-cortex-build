@@ -4,7 +4,7 @@ ARG ARM_GCC_VERSION=13.2.rel1
 
 RUN apt-get update
 RUN apt-get install -y build-essential
-RUN apt-get install -y cmake=3.27.4-1
+RUN apt-get install -y cmake=4.0.0
 RUN apt-get install -y ninja-build
 RUN apt-get install -y git
 RUN apt-get install -y curl
