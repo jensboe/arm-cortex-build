@@ -16,8 +16,7 @@ RUN apt-get update && \
       ca-certificates \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# CMake (offizielles Install-Skript, da 4.0.0 nicht im Repo)
-RUN curl -LO https://github.com/Kitware/CMake/releases/download/v3.29.3/cmake-3.29.3-linux-x86_64.sh && \
+RUN curl -LO https://github.com/Kitware/CMake/releases/download/v4.0.1/cmake-4.0.1-linux-x86_64.sh && \
     sh cmake-3.29.3-linux-x86_64.sh --skip-license --prefix=/usr/local && \
     rm cmake-3.29.3-linux-x86_64.sh
     
