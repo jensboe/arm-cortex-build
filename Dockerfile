@@ -1,18 +1,26 @@
-FROM ubuntu:mantic-20240530
+FROM ubuntu:22.04
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
 ARG ARM_GCC_VERSION=13.2.rel1
 
-RUN apt-get update
-RUN apt-get install -y build-essential
-RUN apt-get install -y cmake=3.27.4-1
-RUN apt-get install -y ninja-build
-RUN apt-get install -y git
-RUN apt-get install -y curl
-RUN apt-get install -y gdb
-RUN apt-get install -y clang-tidy
-RUN apt-get install -y python3
-RUN apt-get install -y clang
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      build-essential \
+      ninja-build \
+      git \
+      curl \
+      gdb \
+      clang-tidy \
+      python3 \
+      python3-pip \
+      clang \
+      ca-certificates \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# CMake (offizielles Install-Skript, da 4.0.0 nicht im Repo)
+RUN curl -LO https://github.com/Kitware/CMake/releases/download/v3.29.3/cmake-3.29.3-linux-x86_64.sh && \
+    sh cmake-3.29.3-linux-x86_64.sh --skip-license --prefix=/usr/local && \
+    rm cmake-3.29.3-linux-x86_64.sh
+    
 RUN mkdir ${TOOLS_PATH} \
     && curl -Lo gcc-arm-none-eabi.tar.xz https://developer.arm.com/-/media/Files/downloads/gnu/${ARM_GCC_VERSION}/binrel/arm-gnu-toolchain-${ARM_GCC_VERSION}-x86_64-arm-none-eabi.tar.xz \
     && tar xf gcc-arm-none-eabi.tar.xz --strip-components=1 -C ${TOOLS_PATH} \
