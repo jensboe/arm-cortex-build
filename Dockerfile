@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 ARG TOOLS_PATH=/opt/gcc-arm-none-eabi
 ARG ARM_GCC_VERSION=15.2.rel1
 ARG CMAKE_VERSION=4.2.3
